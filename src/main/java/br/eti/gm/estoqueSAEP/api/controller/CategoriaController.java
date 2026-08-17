@@ -4,6 +4,7 @@
  */
 package br.eti.gm.estoqueSAEP.api.controller;
 
+import br.eti.gm.estoqueSAEP.api.dto.CategoriaValorTotalDTO;
 import br.eti.gm.estoqueSAEP.domain.model.Categoria;
 import br.eti.gm.estoqueSAEP.domain.repository.CategoriaRepository;
 import br.eti.gm.estoqueSAEP.domain.service.CategoriaService;
@@ -50,6 +51,13 @@ public class CategoriaController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+    
+    @GetMapping("/categorias/totais")
+    public List<CategoriaValorTotalDTO> buscarTotais() {
+        // Aqui o Java aceita o DTO sem reclamar, 
+        // porque não estamos usando o motor automático do Data REST
+        return categoriaRepository.calcularValorTotalPorCategoriaViaJPQL();
     }
     
     @PostMapping ("/categorias")
