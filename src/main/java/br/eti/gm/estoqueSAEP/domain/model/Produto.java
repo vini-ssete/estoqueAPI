@@ -33,12 +33,10 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name = "id_categoria") 
     private Categoria categoria;
-    
-    @Size (max = 10)
+
     private BigDecimal saldo;
     
     @Column(name = "valor_unitario")
-    @Size (max = 10)
     private BigDecimal valorUnitario;
 
     public Long getId() {
