@@ -4,12 +4,14 @@
  */
 package br.eti.gm.estoqueSAEP.api.controller;
 
+import br.eti.gm.estoqueSAEP.api.dto.RelatorioEstoqueDTO;
 import br.eti.gm.estoqueSAEP.domain.model.Movimento;
 import br.eti.gm.estoqueSAEP.domain.model.Movimento;
 import br.eti.gm.estoqueSAEP.domain.repository.MovimentoRepository;
 import br.eti.gm.estoqueSAEP.domain.service.MovimentoService;
 import br.eti.gm.estoqueSAEP.domain.service.MovimentoService;
 import jakarta.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,18 @@ public class MovimentoController {
     public List<Movimento> listas() {
         return movimentoRepository.findAll();
     }
+    
+    @GetMapping ("/movimentos/saidas")
+    public List<Movimento> saidas() {
+        return movimentoRepository.buscarSaidasOrdenadas();
+    }
+    
+//    @GetMapping("/categorias/totais")
+//    public List<RelatorioEstoqueDTO> buscarTotais() {
+//        // Aqui o Java aceita o DTO sem reclamar, 
+//        // porque não estamos usando o motor automático do Data REST
+//        return movimentoRepository.findRelatorioEstoqueViaJPQL();
+//    }
     
     @GetMapping ("/movimentos/{movimentoID}")
     public ResponseEntity<Movimento> buscar(@PathVariable Long movimentoID) {

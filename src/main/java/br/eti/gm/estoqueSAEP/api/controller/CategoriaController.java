@@ -41,6 +41,7 @@ public class CategoriaController {
         return categoriaRepository.findAll();
     }
     
+    
     @GetMapping ("/categorias/{categoriaID}")
     public ResponseEntity<Categoria> buscar(@PathVariable Long categoriaID) {
         

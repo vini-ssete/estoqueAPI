@@ -35,8 +35,7 @@ public class Movimento {
     
     private BigDecimal qtd;
     
-    @NotNull
-    @JsonProperty("data_movto") 
+    @JoinColumn(name = "data_movto") 
     private LocalDateTime dataMovto;
 
     public Long getId() {
@@ -63,13 +62,15 @@ public class Movimento {
         this.qtd = qtd;
     }
 
-    public LocalDateTime getData_movto() {
+    public LocalDateTime getDataMovto() {
         return dataMovto;
     }
 
-    public void setData_movto(LocalDateTime data_movto) {
-        this.dataMovto = data_movto;
+    public void setDataMovto(LocalDateTime dataMovto) {
+        this.dataMovto = dataMovto;
     }
+
+    
 
     public Movimento(Long id, Produto produto, BigDecimal qtd, LocalDateTime data_movto) {
         this.id = id;

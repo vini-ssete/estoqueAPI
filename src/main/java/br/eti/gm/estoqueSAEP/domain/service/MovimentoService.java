@@ -10,6 +10,9 @@ import br.eti.gm.estoqueSAEP.domain.repository.MovimentoRepository;
 import br.eti.gm.estoqueSAEP.domain.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,10 +45,17 @@ public class MovimentoService {
         BigDecimal novoSaldo = produto.getSaldo().add(movimento.getQtd());
         produto.setSaldo(novoSaldo);
         
+        LocalDateTime localDate = LocalDateTime.now();
+        movimento.setDataMovto(localDate);
+        
         produtoRepository.save(produto);
         
         return movimentoRepository.save(movimento);
                 
     }
+    
+    //public Movimento movimentoSaida(Movimento movimento) {
+        
+    //}
     
 }

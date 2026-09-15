@@ -1,5 +1,6 @@
 package br.eti.gm.estoqueSAEP.api.dto;
 
+import jakarta.persistence.Entity;
 import java.math.BigDecimal;
 
 /**
