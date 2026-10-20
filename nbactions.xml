@@ -15,6 +15,11 @@
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>br.eti.gm.estoqueSAEP.EstoqueSaepApplication</exec.mainClass>
                 <exec.executable>java</exec.executable>
+                <Env.APP_ENVIRONMENT>prod2</Env.APP_ENVIRONMENT>
+                <Env.POSTGRES_HOST>172.16.5.2</Env.POSTGRES_HOST>
+                <Env.POSTGRES_DB>vcdp_estoquesaep</Env.POSTGRES_DB>
+                <Env.POSTGRES_USER>vcdp</Env.POSTGRES_USER>
+                <Env.POSTGRES_PASSWORD>senai</Env.POSTGRES_PASSWORD>
             </properties>
         </action>
         <action>
